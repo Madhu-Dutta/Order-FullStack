@@ -1,13 +1,13 @@
 import React from 'react';
 import DisplayCustomers from './components/displayCustomers'
 import UploadCustomer from './components/uploadCustomer';
-
+import { Container} from 'reactstrap';
 function App() {
   return (
-    <div className="container">
+    <Container>
       <DisplayCustomers />
       <UploadCustomer />
-    </div>
+    </Container>
   );
 }
 

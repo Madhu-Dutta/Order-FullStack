@@ -58,10 +58,10 @@ export default class UploadCustomer extends Component {
               data: customer
         })
         .then(res => {
-            console.log('Successfully posted', res)
+            alert('Successfully posted', res)
         })
         .catch(err =>{
-            console.log('error while posting the menu', err)
+            alert('error while posting the menu', err)
         })
     }
 

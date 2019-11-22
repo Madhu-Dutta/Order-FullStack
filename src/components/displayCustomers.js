@@ -36,7 +36,7 @@ class DisplayCustomers extends React.Component {
         console.log('delete customers');       
         const { customers } = this.state;
         axios.delete(apiUrl + '/' + id).then(res => {
-            alert("Delete the response data" + res);
+            alert("Delete the response data");
             this.setState({
                 response : res,
                 customers: customers.filter(customer=>customer.CustID !== customer.id)
