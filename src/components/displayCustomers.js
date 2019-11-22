@@ -70,7 +70,7 @@ class DisplayCustomers extends React.Component {
         return this.state.customers.map(currentCustomer => {
             return <Customer customer={currentCustomer} 
                             deleteCustomer={this.deleteCustomer}
-                            key={currentCustomer._CustID} />
+                            key={currentCustomer.CustID} />
         })
     }
     
