@@ -8,7 +8,7 @@ import UploadCustomer from './components/uploadCustomer';
 function App() {
   return (
     <BrowserRouter>
-      <Container>
+      <Container style={{backgroundColor: '#343A40', padding: '4%'}}>
           <Switch>
                 <Route exact path="/" component={DisplayCustomers} />
                 <Route exact path="/uploadCustomer" component={UploadCustomer} />

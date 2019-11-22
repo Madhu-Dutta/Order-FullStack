@@ -60,7 +60,8 @@ class DisplayCustomers extends React.Component {
         else {
             return (
                 <Container>
-                    <Table dark className="table-container">
+                    <div className="table-responsive">
+                    <Table dark>
                         <thead>
                             <tr>
                                 <td>Name</td>
@@ -92,7 +93,8 @@ class DisplayCustomers extends React.Component {
                                 )
                             })}
                         </tbody>
-                    </Table>     
+                    </Table>  
+                    </div>   
                     <Button color="primary"><Link to="/uploadCustomer" style={{color: 'white'}}>Create new Customers</Link></Button>    
             </Container>
             )
