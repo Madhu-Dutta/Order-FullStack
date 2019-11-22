@@ -70,7 +70,7 @@ export default class UploadCustomer extends Component {
     const {custID, fullname, city, state, country, postcode, region, segID} = this.state;
 
     return (
-    <Container  style={{backgroundColor: '#343A40', width: '90%',padding: '4%'}} >
+    <Container  style={{backgroundColor: '#343A40',padding: '4%'}} >
         <Form action="" onSubmit={this.handleSubmit}>
             <FormGroup>
                     <Label htmlFor="CustID" style={{fontWeight: 'bolder', color: 'white'}}>CustomerID</Label>
