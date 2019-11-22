@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 
 const apiUrl = 'https://product-order.azurewebsites.net/api/Customers';  
 
-export default class UploadCustomer extends Component {
+export default class EditCustomer extends Component {
     
     constructor(props){
         super(props);
@@ -20,6 +20,35 @@ export default class UploadCustomer extends Component {
         state: '',
         postcode: '',
         region: ''
+    }
+
+    componentDidMount() {
+        axios
+        .get(apiUrl + '/' + this.props.match.params.id)
+        .then(res => {
+          this.setState({
+            custID: res.data.CustID,
+            segID: res.data.SegID,
+            fullname: res.data.FullName,
+            city: res.data.City,
+            country: res.data.Country,
+            state: res.data.State,
+            postcode: res.data.PostCode,
+            region: res.data.Region
+          });
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+  
+      axios.get(apiUrl + '/').then(res => {
+        if (res.data.length > 0) {
+          this.setState({
+            //just return the username from the database
+            customers: res.data.map(customer => customer.fullname)
+          });
+        }
+      });
     }
 
     //Onchange
@@ -50,7 +79,7 @@ export default class UploadCustomer extends Component {
         
         //Post in database            
         axios({
-            url: apiUrl,
+            url: (apiUrl + '/' + this.props.match.params.id),
             method: "POST",
             headers:  {
                 "Content-Type":"application/json",
@@ -152,7 +181,7 @@ export default class UploadCustomer extends Component {
                     type="submit"
                     onClick={this.handleSubmit}
                 >
-                    Add
+                    Update
                 </Button>
             </Form>
             <div style={{marginTop: '4%'}}>
