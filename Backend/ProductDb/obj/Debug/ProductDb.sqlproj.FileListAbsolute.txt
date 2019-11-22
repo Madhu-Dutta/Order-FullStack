@@ -1,0 +1,6 @@
+C:\Users\Madhu\source\repos\Order-fullstack\ProductDb\bin\Debug\ProductDb.dacpac
+C:\Users\Madhu\source\repos\Order-fullstack\ProductDb\bin\Debug\ProductDb.dll
+C:\Users\Madhu\source\repos\Order-fullstack\ProductDb\bin\Debug\ProductDb.pdb
+C:\Users\Madhu\source\repos\Order-fullstack\ProductDb\obj\Debug\ProductDb.dll
+C:\Users\Madhu\source\repos\Order-fullstack\ProductDb\obj\Debug\ProductDb.pdb
+C:\Users\Madhu\source\repos\Order-fullstack\ProductDb\obj\Debug\ProductDb.sqlprojAssemblyReference.cache
