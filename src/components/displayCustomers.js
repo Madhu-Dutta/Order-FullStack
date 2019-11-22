@@ -1,6 +1,8 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
-import { Table , Button} from 'reactstrap';
+import { Container, Table , Button} from 'reactstrap';
+
 
 const apiUrl = 'https://product-order.azurewebsites.net/api/Customers';  
 
@@ -23,9 +25,8 @@ class DisplayCustomers extends React.Component {
         axios.get(apiUrl)
             //get all the data as promise in the response
             .then(response => {
-                this.setState({
-                    customers: response.data
-                })
+                const customers = response.data
+                this.setState({customers})
             })
             //catch all the errors
             .catch(error => console.log(error)
@@ -36,7 +37,7 @@ class DisplayCustomers extends React.Component {
         console.log('delete customers');       
         const { customers } = this.state;
         axios.delete(apiUrl + '/' + id).then(res => {
-            alert("Delete the response data");
+            alert("Delete the customer's data");
             this.setState({
                 response : res,
                 customers: customers.filter(customer=>customer.CustID !== customer.id)
@@ -44,7 +45,7 @@ class DisplayCustomers extends React.Component {
         })        
     }
     editCustomer = id => {
-        console.log('edit customers');
+        alert('Do want to edit customers?');
     }
     render() {
         console.log("App render");
@@ -58,7 +59,7 @@ class DisplayCustomers extends React.Component {
         }
         else {
             return (
-                <div className="container">
+                <Container>
                     <Table dark className="table-container">
                         <thead>
                             <tr>
@@ -91,8 +92,9 @@ class DisplayCustomers extends React.Component {
                                 )
                             })}
                         </tbody>
-                    </Table>                   
-            </div>
+                    </Table>     
+                    <Button color="primary"><Link to="/uploadCustomer" style={{color: 'white'}}>Create new Customers</Link></Button>    
+            </Container>
             )
         }
     }

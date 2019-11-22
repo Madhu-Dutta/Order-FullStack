@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 
@@ -58,7 +59,17 @@ export default class UploadCustomer extends Component {
               data: customer
         })
         .then(res => {
-            alert('Successfully posted', res)
+            alert('Successfully posted', res);
+            this.setState({
+                custID: '',
+                segID: '',
+                fullname: '',
+                city: '',
+                country: '',
+                state: '',
+                postcode: '',
+                region: ''
+            })
         })
         .catch(err =>{
             alert('error while posting the menu', err)
@@ -70,7 +81,8 @@ export default class UploadCustomer extends Component {
     const {custID, fullname, city, state, country, postcode, region, segID} = this.state;
 
     return (
-    <Container  style={{backgroundColor: '#343A40',padding: '4%'}} >
+    <React.Fragment>
+    <Container style={{backgroundColor: '#343A40', width: '50%',padding: '4%'}} >
         <Form action="" onSubmit={this.handleSubmit}>
             <FormGroup>
                     <Label htmlFor="CustID" style={{fontWeight: 'bolder', color: 'white'}}>CustomerID</Label>
@@ -136,14 +148,19 @@ export default class UploadCustomer extends Component {
                         value={segID} 
                         onChange={(e) => this.handleChange(e)} />
                 </FormGroup>                 
-                <Button 
+                <Button color="primary" style={{color: 'white'}}
                     type="submit"
                     onClick={this.handleSubmit}
                 >
                     Add
                 </Button>
             </Form>
+            <div style={{marginTop: '4%'}}>
+                <Button color="primary"><Link to="/"  style={{color: 'white'}}>View Customers</Link></Button>  
+            </div>
         </Container>
+       
+        </React.Fragment>
         )
     }
 }

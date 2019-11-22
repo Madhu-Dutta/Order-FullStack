@@ -1,13 +1,20 @@
 import React from 'react';
-import DisplayCustomers from './components/displayCustomers'
-import UploadCustomer from './components/uploadCustomer';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import DisplayCustomers from './components/displayCustomers';
 import { Container} from 'reactstrap';
+import UploadCustomer from './components/uploadCustomer';
+
 function App() {
   return (
-    <Container>
-      <DisplayCustomers />
-      <UploadCustomer />
-    </Container>
+    <BrowserRouter>
+      <Container>
+          <Switch>
+                <Route exact path="/" component={DisplayCustomers} />
+                <Route exact path="/uploadCustomer" component={UploadCustomer} />
+          </Switch>
+      </Container>
+    </BrowserRouter>
   );
 }
 
