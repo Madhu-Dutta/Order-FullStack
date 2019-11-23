@@ -80,16 +80,6 @@ export default class EditCustomer extends Component {
         })
         .then(res => {
             alert('Successfully posted', res);
-            this.setState({
-                custID: '',
-                segID: '',
-                fullname: '',
-                city: '',
-                country: '',
-                state: '',
-                postcode: '',
-                region: ''
-            })
         })
         .catch(err =>{
             alert('error while posting the menu', err)
@@ -104,6 +94,7 @@ export default class EditCustomer extends Component {
     <React.Fragment>
     <Container>
         <Form action="" onSubmit={this.handleSubmit}>
+        <fieldset disabled>
             <FormGroup>
                     <Label htmlFor="CustID" style={{fontWeight: 'bolder', color: 'white'}}>CustomerID</Label>
                         <Input 
@@ -112,6 +103,7 @@ export default class EditCustomer extends Component {
                         value={custID} 
                         onChange={(e) => this.handleChange(e)} />
             </FormGroup>
+            </fieldset>
             <FormGroup>
                     <Label htmlFor="FullName" style={{fontWeight: 'bolder', color: 'white'}}>FullName</Label>
                         <Input 
