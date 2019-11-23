@@ -40,15 +40,6 @@ export default class EditCustomer extends Component {
         .catch(function(err) {
           console.log(err);
         });
-  
-      axios.get(apiUrl + '/').then(res => {
-        if (res.data.length > 0) {
-          this.setState({
-            //just return the username from the database
-            customers: res.data.map(customer => customer.fullname)
-          });
-        }
-      });
     }
 
     //Onchange
@@ -80,7 +71,7 @@ export default class EditCustomer extends Component {
         //Post in database            
         axios({
             url: (apiUrl + '/' + this.props.match.params.id),
-            method: "POST",
+            method: "PUT",
             headers:  {
                 "Content-Type":"application/json",
                 'Access-Control-Allow-Origin': true
